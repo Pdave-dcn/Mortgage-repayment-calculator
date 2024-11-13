@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Manrope:wght@200..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles/style.css" />
 
     <link
@@ -15,29 +21,93 @@
     <title>Frontend Mentor | Mortgage repayment calculator</title>
   </head>
   <body>
-    Mortgage Calculator Clear All Mortgage Amount Mortgage Term Interest Rate
-    Mortgage Type Repayment Interest Only Calculate Repayments
-
-    <!-- Empty results start -->
-
-    Results shown here Complete the form and click “calculate repayments” to see
-    what your monthly repayments would be.
-
-    <!-- Empty results end -->
-
-    <!-- Completed results start -->
-
-    Your results Your results are shown below based on the information you
-    provided. To adjust the results, edit the form and click “calculate
-    repayments” again. Your monthly repayments Total you'll repay over the term
-
-    <!-- Completed results end -->
-
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="#">Pdave-dcn</a>.
-    </div>
+    <main>
+      <section class="calculator__wrapper">
+        <div class="calculator">
+          <div class="calculator__header">
+            <h1 class="calculator__header--title">Mortgage calculator</h1>
+            <span class="calculator__header--btn">Clear All</span>
+          </div>
+          <div class="calculator__input">
+            <div class="label-input">
+              <label for="mortgage-amount">Mortgage Amount</label>
+              <input
+                type="number"
+                name="mortgage-amount"
+                id="mortgage-amount"
+                class="calculator__input--amount"
+              />
+            </div>
+            <div class="calculator__input--term--rate">
+              <div class="label-input">
+                <label for="mortgage-term">Mortgage Term</label>
+                <input
+                  type="number"
+                  name="mortgage-term"
+                  id="mortgage-term"
+                  class="calculator__input--term"
+                />
+              </div>
+              <div class="label-input">
+                <label for="interest-rate">Interest Rate</label>
+                <input
+                  type="number"
+                  name="interest-rate"
+                  id="interest-rate"
+                  class="calculator__input--rate"
+                />
+              </div>
+            </div>
+            <div class="calculator__input--type">
+              <span class="radio-btn-title">Mortgage Type</span>
+              <div class="radio-btn-1">
+                <input
+                  type="radio"
+                  name="mortgage-type"
+                  id="repayment"
+                  class="calculator__input--type--repayment"
+                />
+                <label for="repayment">Repayment</label>
+              </div>
+              <div class="radio-btn-2">
+                <input
+                  type="radio"
+                  name="mortgage-type"
+                  id="interest-only"
+                  class="calculator__input--type--interest"
+                />
+                <label for="interest-only">Interest Only</label>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="calculator__submit">
+            <img
+              src="assets/images/icon-calculator.svg"
+              alt="Icon calculator"
+              class="calculator__submit--img"
+            />
+            <span>Calculate Repayments</span>
+          </button>
+        </div>
+        <div class="display">
+          <img
+            src="assets/images/illustration-empty.svg"
+            alt="illustration"
+            class="display__img"
+          />
+          <h1 class="display__title">Results shown here</h1>
+          <p class="display__paragraph">
+            Complete the form and click "calculate repayments to see what your
+            monthly repayments would be."
+          </p>
+        </div>
+      </section>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a
+        >.Coded by <a href="#">Pdave-dcn</a>.
+      </div>
+    </main>
     <script src="dist/main.js"></script>
   </body>
 </html>
