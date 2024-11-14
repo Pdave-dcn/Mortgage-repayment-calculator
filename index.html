@@ -25,92 +25,105 @@
       <section class="calculator__wrapper">
         <form action="">
           <div class="calculator">
-            <div class="calculator__header">
-              <h1 class="calculator__header--title">Mortgage calculator</h1>
-              <span class="calculator__header--btn">Clear All</span>
-            </div>
-            <div class="calculator__input">
-              <div class="label-input">
-                <label for="mortgage-amount">Mortgage Amount</label>
-                <input
-                  type="number"
-                  name="mortgage-amount"
-                  id="mortgage-amount"
-                  class="calculator__input--amount"
+            <div class="calculator__elements--container">
+              <div class="calculator__header">
+                <h1 class="calculator__header--title">Mortgage calculator</h1>
+                <button class="calculator__header--btn">Clear All</button>
+              </div>
+              <div class="calculator__input">
+                <div class="label-input">
+                  <label for="mortgage-amount">Mortgage Amount</label>
+                  <span class="input-wrapper-1">
+                    <span class="unit-label-1">£</span>
+                    <input
+                      type="text"
+                      name="mortgage-amount"
+                      id="mortgage-amount"
+                      class="calculator__input--amount"
+                    />
+                  </span>
+                  <span class="calculator__input--error"></span>
+                </div>
+                <div class="calculator__input--term--rate">
+                  <div class="label-input">
+                    <label for="mortgage-term">Mortgage Term</label>
+                    <div class="input-wrapper-2">
+                      <input
+                        type="text"
+                        name="mortgage-term"
+                        id="mortgage-term"
+                        class="mortgage__term term-rate"
+                      />
+                      <span class="unit-label-2">years</span>
+                    </div>
+                    <span class="calculator__input--error"></span>
+                  </div>
+                  <div class="label-input">
+                    <label for="interest-rate">Interest Rate</label>
+                    <div class="input-wrapper-3">
+                      <input
+                        type="text"
+                        name="interest-rate"
+                        id="interest-rate"
+                        class="morgage__rate term-rate"
+                      />
+                      <span class="unit-label-3">%</span>
+                    </div>
+                    <span class="calculator__input--error"></span>
+                  </div>
+                </div>
+                <div class="calculator__input--type">
+                  <span class="calculator__input--type--title"
+                    >Mortgage Type</span
+                  >
+                  <div class="calculator__input--type--btns">
+                    <div class="radio-btn-1">
+                      <input
+                        type="radio"
+                        name="mortgage-type"
+                        id="repayment"
+                        class="calculator__input--type--repayment"
+                      />
+                      <label for="repayment">Repayment</label>
+                    </div>
+                    <div class="radio-btn-2">
+                      <input
+                        type="radio"
+                        name="mortgage-type"
+                        id="interest-only"
+                        class="calculator__input--type--interest"
+                      />
+                      <label for="interest-only">Interest Only</label>
+                    </div>
+                  </div>
+                  <span class="calculator__input--error"></span>
+                </div>
+              </div>
+              <button type="submit" class="calculator__submit">
+                <img
+                  src="assets/images/icon-calculator.svg"
+                  alt="Icon calculator"
+                  class="calculator__submit--img"
                 />
-                <span class="calculator__input--error"></span>
-              </div>
-              <div class="calculator__input--term--rate">
-                <div class="label-input">
-                  <label for="mortgage-term">Mortgage Term</label>
-                  <input
-                    type="number"
-                    name="mortgage-term"
-                    id="mortgage-term"
-                    class="calculator__input--term"
-                  />
-                  <span class="calculator__input--error"></span>
-                </div>
-                <div class="label-input">
-                  <label for="interest-rate">Interest Rate</label>
-                  <input
-                    type="number"
-                    name="interest-rate"
-                    id="interest-rate"
-                    class="calculator__input--rate"
-                  />
-                  <span class="calculator__input--error"></span>
-                </div>
-              </div>
-              <div class="calculator__input--type">
-                <span class="calculator__input--type--title"
-                  >Mortgage Type</span
-                >
-                <div class="calculator__input--type--btns">
-                  <div class="radio-btn-1">
-                    <input
-                      type="radio"
-                      name="mortgage-type"
-                      id="repayment"
-                      class="calculator__input--type--repayment"
-                    />
-                    <label for="repayment">Repayment</label>
-                  </div>
-                  <div class="radio-btn-2">
-                    <input
-                      type="radio"
-                      name="mortgage-type"
-                      id="interest-only"
-                      class="calculator__input--type--interest"
-                    />
-                    <label for="interest-only">Interest Only</label>
-                  </div>
-                </div>
-                <span class="calculator__input--error"></span>
+                <span>Calculate Repayments</span>
+              </button>
+            </div>
+            <div class="calculator__display">
+              <div class="display">
+                <img
+                  src="assets/images/illustration-empty.svg"
+                  alt="illustration"
+                  class="calculator__display--img"
+                />
+                <h1 class="calculator__display--title">Results shown here</h1>
+                <p class="calculator__display--paragraph">
+                  Complete the form and click "calculate repayments to see what
+                  your monthly repayments would be."
+                </p>
               </div>
             </div>
-            <button type="submit" class="calculator__submit">
-              <img
-                src="assets/images/icon-calculator.svg"
-                alt="Icon calculator"
-                class="calculator__submit--img"
-              />
-              <span>Calculate Repayments</span>
-            </button>
           </div>
         </form>
-        <div class="display">
-          <img
-            src="assets/images/illustration-empty.svg"
-            alt="illustration"
-            class="display__img"
-          />
-          <h1 class="display__title">Results shown here</h1>
-          <p class="display__paragraph">
-            Complete the form and click "calculate repayments to see what your
-            monthly repayments would be."
-          </p>
-        </div>
       </section>
       <div class="attribution">
         Challenge by

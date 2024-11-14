@@ -11,3 +11,21 @@ $neutral-Slate-900: hsl(202, 55%, 16%);
 $font-size-paragraph: 1rem;
 $font-weight-min: 500;
 $font-weight-max: 700;
+
+@mixin input-wrapper-config {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+@mixin unit-label-config {
+  position: absolute;
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: $neutral-Slate-100;
+  color: $neutral-Slate-900;
+  font-weight: $font-weight-min;
+  padding: 9px 10px;
+  pointer-events: none;
+}
