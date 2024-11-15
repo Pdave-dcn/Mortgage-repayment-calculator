@@ -44,11 +44,15 @@ body {
   font-size: 1rem;
 }
 .calculator__header--btn {
+  color: hsl(200, 24%, 40%);
   font-size: 0.8rem;
   border: none;
   background: none;
   text-decoration: underline;
   cursor: pointer;
+}
+.calculator__header--btn:hover {
+  color: hsl(202, 55%, 16%);
 }
 .calculator__input {
   width: 100%;
@@ -93,14 +97,17 @@ body {
 .calculator__input input {
   cursor: pointer;
   color: hsl(202, 55%, 16%);
+  border: 1px solid hsl(200, 24%, 40%);
   outline: none;
 }
 .calculator__input input[type=text] {
   width: 100%;
   box-sizing: border-box;
   border-radius: 6px;
-  border: 1px solid;
   padding: 10px 13px;
+}
+.calculator__input input[type=text]:focus {
+  border: 1px solid hsl(61, 70%, 52%);
 }
 .calculator__input--term--rate {
   display: flex;
@@ -140,6 +147,9 @@ body {
   pointer-events: none;
   right: 1px;
 }
+.calculator__input .label-input .focus-unit-label {
+  background-color: hsl(61, 70%, 52%);
+}
 .calculator__input--type--title {
   font-size: 0.8rem;
 }
@@ -156,10 +166,38 @@ body {
 .calculator__input--type--btns .radio-btn-1,
 .calculator__input--type--btns .radio-btn-2 {
   display: flex;
-  border: 1px solid;
+  border: 1px solid hsl(200, 24%, 40%);
   border-radius: 6px;
   padding: 7px 10px;
   gap: 1em;
+}
+.calculator__input--type--btns input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid hsl(200, 24%, 40%);
+  transition: all 0.3s ease;
+}
+.calculator__input--type--btns input[type=radio]:checked {
+  border-color: hsl(61, 70%, 52%);
+}
+.calculator__input--type--btns input[type=radio]:checked::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  background-color: hsl(61, 70%, 52%);
+  border-radius: 50%;
+}
+.calculator__input--type--btns .active-type {
+  border: 1px solid hsl(61, 70%, 52%);
+  background-color: rgba(215, 218, 47, 0.1);
 }
 .calculator__submit {
   margin-top: 30px;
@@ -177,6 +215,9 @@ body {
   align-self: flex-start;
   cursor: pointer;
   color: hsl(202, 55%, 16%);
+}
+.calculator__submit:hover {
+  background-color: rgba(215, 218, 47, 0.5);
 }
 .calculator__submit img {
   width: 20px;

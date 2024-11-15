@@ -28,7 +28,9 @@
             <div class="calculator__elements--container">
               <div class="calculator__header">
                 <h1 class="calculator__header--title">Mortgage calculator</h1>
-                <button class="calculator__header--btn">Clear All</button>
+                <button type="button" class="calculator__header--btn">
+                  Clear All
+                </button>
               </div>
               <div class="calculator__input">
                 <div class="label-input">
@@ -39,7 +41,7 @@
                       type="text"
                       name="mortgage-amount"
                       id="mortgage-amount"
-                      class="calculator__input--amount"
+                      class="calculator__input--amount js-input-amount"
                     />
                   </span>
                   <span class="calculator__input--error"></span>
@@ -77,20 +79,22 @@
                     >Mortgage Type</span
                   >
                   <div class="calculator__input--type--btns">
-                    <div class="radio-btn-1">
+                    <div class="radio-btn-1 js-radio-btn-wrapper">
                       <input
                         type="radio"
                         name="mortgage-type"
                         id="repayment"
+                        value="1"
                         class="calculator__input--type--repayment"
                       />
                       <label for="repayment">Repayment</label>
                     </div>
-                    <div class="radio-btn-2">
+                    <div class="radio-btn-2 js-radio-btn-wrapper">
                       <input
                         type="radio"
                         name="mortgage-type"
                         id="interest-only"
+                        value="2"
                         class="calculator__input--type--interest"
                       />
                       <label for="interest-only">Interest Only</label>

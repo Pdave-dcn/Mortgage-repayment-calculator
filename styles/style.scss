@@ -27,7 +27,6 @@ body {
 
   &__elements--container {
     background-color: white;
-    //width: 50%;
     box-sizing: border-box;
     flex: 1;
     display: flex;
@@ -49,11 +48,16 @@ body {
     }
 
     &--btn {
+      color: $neutral-Slate-700;
       font-size: 0.8rem;
       border: none;
       background: none;
       text-decoration: underline;
       cursor: pointer;
+
+      &:hover {
+        color: $neutral-Slate-900;
+      }
     }
   }
 
@@ -95,6 +99,7 @@ body {
     input {
       cursor: pointer;
       color: $neutral-Slate-900;
+      border: 1px solid $neutral-Slate-700;
       outline: none;
     }
 
@@ -102,8 +107,11 @@ body {
       width: 100%;
       box-sizing: border-box;
       border-radius: 6px;
-      border: 1px solid;
       padding: 10px 13px;
+
+      &:focus {
+        border: 1px solid $primary-Lime;
+      }
     }
 
     &--term--rate {
@@ -129,6 +137,12 @@ body {
       }
     }
 
+    .label-input {
+      .focus-unit-label {
+        background-color: $primary-Lime;
+      }
+    }
+
     &--type {
       &--title {
         font-size: 0.8rem;
@@ -147,10 +161,41 @@ body {
         .radio-btn-1,
         .radio-btn-2 {
           display: flex;
-          border: 1px solid;
+          border: 1px solid $neutral-Slate-700;
           border-radius: 6px;
           padding: 7px 10px;
           gap: 1em;
+        }
+
+        input[type="radio"] {
+          -webkit-appearance: none;
+          appearance: none;
+          position: relative;
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          border: 1px solid $neutral-Slate-700;
+          transition: all 0.3s ease;
+
+          &:checked {
+            border-color: $primary-Lime;
+          }
+
+          &:checked::before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 10px;
+            height: 10px;
+            background-color: $primary-Lime;
+            border-radius: 50%;
+          }
+        }
+
+        .active-type {
+          border: 1px solid $primary-Lime;
+          background-color: rgba($color: $primary-Lime, $alpha: 0.1);
         }
       }
     }
@@ -173,6 +218,10 @@ body {
     align-self: flex-start;
     cursor: pointer;
     color: $neutral-Slate-900;
+
+    &:hover {
+      background-color: rgba($color: $primary-Lime, $alpha: 0.5);
+    }
 
     img {
       width: 20px;
