@@ -115,6 +115,10 @@ body {
       }
     }
 
+    .error-input {
+      border: 1px solid $primary-Red;
+    }
+
     &--term--rate {
       display: flex;
       gap: 20px;
@@ -141,6 +145,14 @@ body {
     .label-input {
       .focus-unit-label {
         background-color: $primary-Lime;
+        font-weight: $font-weight-max;
+        color: $neutral-Slate-900;
+      }
+
+      .error-unit-label {
+        background-color: $primary-Red;
+        font-weight: $font-weight-max;
+        color: white;
       }
     }
 
@@ -199,6 +211,11 @@ body {
           background-color: rgba($color: $primary-Lime, $alpha: 0.1);
         }
       }
+    }
+
+    &--error {
+      font-size: 0.6rem;
+      color: $primary-Red;
     }
   }
 

@@ -110,6 +110,9 @@ body {
 .calculator__input input[type=text]:focus {
   border: 1px solid hsl(61, 70%, 52%);
 }
+.calculator__input .error-input {
+  border: 1px solid hsl(4, 69%, 50%);
+}
 .calculator__input--term--rate {
   display: flex;
   gap: 20px;
@@ -150,6 +153,13 @@ body {
 }
 .calculator__input .label-input .focus-unit-label {
   background-color: hsl(61, 70%, 52%);
+  font-weight: 700;
+  color: hsl(202, 55%, 16%);
+}
+.calculator__input .label-input .error-unit-label {
+  background-color: hsl(4, 69%, 50%);
+  font-weight: 700;
+  color: white;
 }
 .calculator__input--type--title {
   font-size: 0.8rem;
@@ -199,6 +209,10 @@ body {
 .calculator__input--type--btns .active-type {
   border: 1px solid hsl(61, 70%, 52%);
   background-color: rgba(215, 218, 47, 0.1);
+}
+.calculator__input--error {
+  font-size: 0.6rem;
+  color: hsl(4, 69%, 50%);
 }
 .calculator__submit {
   margin-top: 30px;
