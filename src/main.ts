@@ -2,7 +2,7 @@ import * as exportedFunctions from "./functions.js";
 
 // STYLE MANAGING
 //***************************************************************//
-document.querySelectorAll("input[type='text'").forEach((input) => {
+document.querySelectorAll("input[type='text']").forEach((input) => {
   input.addEventListener("focus", (event) => {
     const target = event.target as HTMLElement;
 
@@ -36,7 +36,16 @@ document.querySelectorAll("input[type='radio']").forEach((input) => {
 document.querySelector("form")?.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  document.querySelectorAll("input").forEach((input) => {
-    exportedFunctions.verifyInput(input);
-  });
+  exportedFunctions.verifyInput();
+
+  if (exportedFunctions.isInputValid) {
+    exportedFunctions.verifyInputValue();
+  }
+});
+
+// CLEAR INPUTS
+//****************************************************************************//
+document.querySelector(".js-clear-btn")?.addEventListener("click", () => {
+  const form = document.querySelector("form") as HTMLFormElement;
+  exportedFunctions.clearAllInputs(form);
 });

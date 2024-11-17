@@ -1,6 +1,6 @@
-var _a;
+var _a, _b;
 import * as exportedFunctions from "./functions.js";
-document.querySelectorAll("input[type='text'").forEach((input) => {
+document.querySelectorAll("input[type='text']").forEach((input) => {
     input.addEventListener("focus", (event) => {
         const target = event.target;
         const unitLabelElement = exportedFunctions.unitLabel(target);
@@ -24,8 +24,13 @@ document.querySelectorAll("input[type='radio']").forEach((input) => {
 });
 (_a = document.querySelector("form")) === null || _a === void 0 ? void 0 : _a.addEventListener("submit", (event) => {
     event.preventDefault();
-    document.querySelectorAll("input").forEach((input) => {
-        exportedFunctions.verifyInput(input);
-    });
+    exportedFunctions.verifyInput();
+    if (exportedFunctions.isInputValid) {
+        exportedFunctions.verifyInputValue();
+    }
+});
+(_b = document.querySelector(".js-clear-btn")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+    const form = document.querySelector("form");
+    exportedFunctions.clearAllInputs(form);
 });
 //# sourceMappingURL=main.js.map
