@@ -22,6 +22,7 @@ body {
   background-color: white;
   font-size: 0.8rem;
   color: hsl(202, 55%, 16%);
+  border-radius: 12px;
 }
 .calculator__elements--container {
   background-color: white;
@@ -97,7 +98,6 @@ body {
 }
 .calculator__input input {
   cursor: pointer;
-  color: hsl(202, 55%, 16%);
   border: 1px solid hsl(200, 24%, 40%);
   outline: none;
 }
@@ -106,6 +106,8 @@ body {
   box-sizing: border-box;
   border-radius: 6px;
   padding: 10px 13px;
+  font-weight: 700;
+  color: hsl(202, 55%, 16%);
 }
 .calculator__input input[type=text]:focus {
   border: 1px solid hsl(61, 70%, 52%);
@@ -253,6 +255,12 @@ body {
   align-items: center;
   justify-content: center;
 }
+.calculator__display .display .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .calculator__display--img {
   width: 38%;
   align-self: center;
@@ -269,6 +277,54 @@ body {
   font-size: 0.8rem;
   font-weight: 200;
   color: hsl(203, 41%, 72%);
+}
+.calculator .result-style {
+  padding-top: 2em;
+}
+.calculator .result-style .result__title {
+  font-size: 1rem;
+}
+.calculator .result-style .result__paragraph {
+  margin-top: 15px;
+  font-size: 0.8rem;
+  font-weight: 200;
+  color: hsl(203, 41%, 72%);
+  margin-bottom: 1rem;
+}
+.calculator .result-style .result__container {
+  background-color: #0d202b;
+  padding: 20px;
+  border-top: 2px solid hsl(61, 70%, 52%);
+  border-radius: 8px;
+}
+.calculator .result-style .result__container--title {
+  font-size: 0.8rem;
+  color: hsl(203, 41%, 72%);
+}
+.calculator .result-style .result__container--content-1 {
+  padding-bottom: 20px;
+  border-bottom: 1px solid hsl(203, 41%, 72%);
+}
+.calculator .result-style .result__container--content-1 input {
+  background-color: #0d202b;
+  outline: none;
+  border: none;
+  margin-top: 1rem;
+  width: 200px;
+  color: hsl(61, 70%, 52%);
+  font-size: 3rem;
+}
+.calculator .result-style .result__container--content-2 {
+  margin-top: 20px;
+}
+.calculator .result-style .result__container--content-2 input {
+  background-color: #0d202b;
+  outline: none;
+  border: none;
+  margin-top: 1rem;
+  width: 200px;
+  color: white;
+  font-size: 1.5rem;
 }
 
 /*.attribution {

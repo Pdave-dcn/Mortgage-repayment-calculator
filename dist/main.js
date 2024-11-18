@@ -1,14 +1,15 @@
 var _a, _b;
-import * as exportedFunctions from "./functions.js";
+import * as fromMainFunctionsget from "./functions/main-functions.js";
+import { unitLabel } from "./functions/utils.js";
 document.querySelectorAll("input[type='text']").forEach((input) => {
     input.addEventListener("focus", (event) => {
         const target = event.target;
-        const unitLabelElement = exportedFunctions.unitLabel(target);
+        const unitLabelElement = unitLabel(target);
         unitLabelElement === null || unitLabelElement === void 0 ? void 0 : unitLabelElement.classList.add("focus-unit-label");
     });
     input.addEventListener("blur", (event) => {
         const target = event.target;
-        const unitLabelElement = exportedFunctions.unitLabel(target);
+        const unitLabelElement = unitLabel(target);
         unitLabelElement === null || unitLabelElement === void 0 ? void 0 : unitLabelElement.classList.remove("focus-unit-label");
     });
 });
@@ -24,13 +25,14 @@ document.querySelectorAll("input[type='radio']").forEach((input) => {
 });
 (_a = document.querySelector("form")) === null || _a === void 0 ? void 0 : _a.addEventListener("submit", (event) => {
     event.preventDefault();
-    exportedFunctions.verifyInput();
-    if (exportedFunctions.isInputValid) {
-        exportedFunctions.verifyInputValue();
+    const isInputValid = fromMainFunctionsget.verifyInput();
+    const isInputValueValid = isInputValid && fromMainFunctionsget.verifyInputValue;
+    if (isInputValid && isInputValueValid) {
+        fromMainFunctionsget.generateResult();
     }
 });
 (_b = document.querySelector(".js-clear-btn")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
     const form = document.querySelector("form");
-    exportedFunctions.clearAllInputs(form);
+    fromMainFunctionsget.clearAllInputs(form);
 });
 //# sourceMappingURL=main.js.map

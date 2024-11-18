@@ -1,4 +1,5 @@
-import * as exportedFunctions from "./functions.js";
+import * as fromMainFunctionsget from "./functions/main-functions.js";
+import { unitLabel } from "./functions/utils.js";
 
 // STYLE MANAGING
 //***************************************************************//
@@ -6,14 +7,14 @@ document.querySelectorAll("input[type='text']").forEach((input) => {
   input.addEventListener("focus", (event) => {
     const target = event.target as HTMLElement;
 
-    const unitLabelElement = exportedFunctions.unitLabel(target);
+    const unitLabelElement = unitLabel(target);
     unitLabelElement?.classList.add("focus-unit-label");
   });
 
   input.addEventListener("blur", (event) => {
     const target = event.target as HTMLElement;
 
-    const unitLabelElement = exportedFunctions.unitLabel(target);
+    const unitLabelElement = unitLabel(target);
     unitLabelElement?.classList.remove("focus-unit-label");
   });
 });
@@ -36,10 +37,13 @@ document.querySelectorAll("input[type='radio']").forEach((input) => {
 document.querySelector("form")?.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  exportedFunctions.verifyInput();
+  const isInputValid = fromMainFunctionsget.verifyInput();
 
-  if (exportedFunctions.isInputValid) {
-    exportedFunctions.verifyInputValue();
+  const isInputValueValid =
+    isInputValid && fromMainFunctionsget.verifyInputValue;
+
+  if (isInputValid && isInputValueValid) {
+    fromMainFunctionsget.generateResult();
   }
 });
 
@@ -47,5 +51,5 @@ document.querySelector("form")?.addEventListener("submit", (event) => {
 //****************************************************************************//
 document.querySelector(".js-clear-btn")?.addEventListener("click", () => {
   const form = document.querySelector("form") as HTMLFormElement;
-  exportedFunctions.clearAllInputs(form);
+  fromMainFunctionsget.clearAllInputs(form);
 });

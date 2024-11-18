@@ -29,3 +29,25 @@ $font-weight-max: 700;
   padding: 9px 10px;
   pointer-events: none;
 }
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin paragraph-style {
+  margin-top: 15px;
+  font-size: 0.8rem;
+  font-weight: 200;
+  color: $neutral-Slate-300;
+}
+
+@mixin result-contents-input-style {
+  background-color: darken($color: $neutral-Slate-900, $amount: 5);
+  outline: none;
+  border: none;
+  margin-top: 1rem;
+  width: 200px;
+}
