@@ -309,20 +309,22 @@ body {
   background-color: #0d202b;
   outline: none;
   border: none;
-  margin-top: 1rem;
-  width: 200px;
+  margin-top: 0.9rem;
+  width: 270px;
+  pointer-events: none;
   color: hsl(61, 70%, 52%);
   font-size: 3rem;
 }
 .calculator .result-style .result__container--content-2 {
-  margin-top: 20px;
+  margin-top: 3em;
 }
 .calculator .result-style .result__container--content-2 input {
   background-color: #0d202b;
   outline: none;
   border: none;
-  margin-top: 1rem;
-  width: 200px;
+  margin-top: 0.9rem;
+  width: 270px;
+  pointer-events: none;
   color: white;
   font-size: 1.5rem;
 }

@@ -322,7 +322,7 @@ body {
         }
 
         &--content-2 {
-          margin-top: 20px;
+          margin-top: 3em;
           input {
             @include result-contents-input-style();
             color: white;

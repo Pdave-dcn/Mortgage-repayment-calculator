@@ -51,9 +51,8 @@ export function verifyInputValue() {
                 fromUtilsGet.renderError(inputElement, "Value cannot be negative");
                 isValid = false;
             }
-            else if (input.classList.contains("js-input-amount") &&
-                numericValue === 0) {
-                fromUtilsGet.renderError(inputElement, "Amount cannot be zero");
+            else if (numericValue === 0) {
+                fromUtilsGet.renderError(inputElement, "Value cannot be zero");
                 isValid = false;
             }
             else {
@@ -85,15 +84,15 @@ export function generateResult() {
         const deno = (1 + rate) ** term - 1;
         const result = amount * (nume / deno);
         const termlyResult = result * term;
-        monthlyPayment = result.toFixed(2);
-        yearlyPayment = termlyResult.toFixed(2);
+        monthlyPayment = fromUtilsGet.formatNumberWithCommas(Number(result.toFixed(2)));
+        yearlyPayment = fromUtilsGet.formatNumberWithCommas(Number(termlyResult.toFixed(2)));
         fromUtilsGet.renderHTML(monthlyPayment, yearlyPayment);
     }
     else {
         const result = amount * rate;
         const termlyResult = result * term;
-        monthlyPayment = result.toFixed(2);
-        yearlyPayment = termlyResult.toFixed(2);
+        monthlyPayment = fromUtilsGet.formatNumberWithCommas(Number(result.toFixed(2)));
+        yearlyPayment = fromUtilsGet.formatNumberWithCommas(Number(termlyResult.toFixed(2)));
         fromUtilsGet.renderHTML(monthlyPayment, yearlyPayment);
     }
 }

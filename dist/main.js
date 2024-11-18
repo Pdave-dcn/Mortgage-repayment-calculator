@@ -26,7 +26,7 @@ document.querySelectorAll("input[type='radio']").forEach((input) => {
 (_a = document.querySelector("form")) === null || _a === void 0 ? void 0 : _a.addEventListener("submit", (event) => {
     event.preventDefault();
     const isInputValid = fromMainFunctionsget.verifyInput();
-    const isInputValueValid = isInputValid && fromMainFunctionsget.verifyInputValue;
+    const isInputValueValid = isInputValid && fromMainFunctionsget.verifyInputValue();
     if (isInputValid && isInputValueValid) {
         fromMainFunctionsget.generateResult();
     }

@@ -64,3 +64,7 @@ export function renderHTML(monthlyResult: string, yearlyResult: string): void {
     console.error("Display container '.js-display' not found in the DOM.");
   }
 }
+
+export function formatNumberWithCommas(value: number): string {
+  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

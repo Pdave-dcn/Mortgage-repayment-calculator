@@ -38,9 +38,8 @@ document.querySelector("form")?.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const isInputValid = fromMainFunctionsget.verifyInput();
-
   const isInputValueValid =
-    isInputValid && fromMainFunctionsget.verifyInputValue;
+    isInputValid && fromMainFunctionsget.verifyInputValue();
 
   if (isInputValid && isInputValueValid) {
     fromMainFunctionsget.generateResult();

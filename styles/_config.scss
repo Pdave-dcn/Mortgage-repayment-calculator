@@ -48,6 +48,7 @@ $font-weight-max: 700;
   background-color: darken($color: $neutral-Slate-900, $amount: 5);
   outline: none;
   border: none;
-  margin-top: 1rem;
-  width: 200px;
+  margin-top: 0.9rem;
+  width: 270px;
+  pointer-events: none;
 }
