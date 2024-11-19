@@ -53,7 +53,7 @@ export function renderHTML(monthlyResult, yearlyResult) {
         console.error("Display container '.js-display' not found in the DOM.");
     }
 }
-export function formatNumberWithCommas(value) {
-    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+export function addCommas(value) {
+    return value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 //# sourceMappingURL=utils.js.map

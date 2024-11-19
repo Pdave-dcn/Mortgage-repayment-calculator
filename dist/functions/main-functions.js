@@ -1,6 +1,6 @@
 import * as fromUtilsGet from "./utils.js";
-export let isInputValid = true;
-export let isInputValueValid = true;
+let isInputValid = true;
+let isInputValueValid = true;
 export function verifyInput() {
     isInputValid = true;
     let isValid = true;
@@ -38,12 +38,12 @@ export function verifyInputValue() {
     let isValid = true;
     if (isInputValid) {
         document
-            .querySelectorAll("input[type='text']")
+            .querySelectorAll("input[name='mortgage-value']")
             .forEach((input) => {
             const inputElement = input;
-            const value = inputElement.value.trim();
-            const numericValue = Number(inputElement.value);
-            if (isNaN(Number(value))) {
+            const value = inputElement.value.replace(/,/g, "").trim();
+            const numericValue = Number(value);
+            if (isNaN(numericValue)) {
                 fromUtilsGet.renderError(inputElement, "Must be a valid value");
                 isValid = false;
             }
@@ -66,10 +66,12 @@ export function verifyInputValue() {
     return isInputValueValid;
 }
 export function generateResult() {
-    var _a, _b, _c;
-    const amount = Number((_a = document.querySelector(".js-input-amount")) === null || _a === void 0 ? void 0 : _a.value);
-    const term = Number((_b = document.getElementById("mortgage-term")) === null || _b === void 0 ? void 0 : _b.value) * 12;
-    const rate = Number((_c = document.getElementById("interest-rate")) === null || _c === void 0 ? void 0 : _c.value) /
+    var _a, _b;
+    const inputAmountElement = document.querySelector(".js-input-amount");
+    const inputAmountValue = inputAmountElement.value.replace(/,/g, "");
+    const amount = Number(inputAmountValue);
+    const term = Number((_a = document.getElementById("mortgage-term")) === null || _a === void 0 ? void 0 : _a.value) * 12;
+    const rate = Number((_b = document.getElementById("interest-rate")) === null || _b === void 0 ? void 0 : _b.value) /
         12 /
         100;
     const radioGroup = document.querySelectorAll("input[name='mortgage-type']");
@@ -84,15 +86,15 @@ export function generateResult() {
         const deno = (1 + rate) ** term - 1;
         const result = amount * (nume / deno);
         const termlyResult = result * term;
-        monthlyPayment = fromUtilsGet.formatNumberWithCommas(Number(result.toFixed(2)));
-        yearlyPayment = fromUtilsGet.formatNumberWithCommas(Number(termlyResult.toFixed(2)));
+        monthlyPayment = fromUtilsGet.addCommas(result.toFixed(2));
+        yearlyPayment = fromUtilsGet.addCommas(termlyResult.toFixed(2));
         fromUtilsGet.renderHTML(monthlyPayment, yearlyPayment);
     }
     else {
         const result = amount * rate;
         const termlyResult = result * term;
-        monthlyPayment = fromUtilsGet.formatNumberWithCommas(Number(result.toFixed(2)));
-        yearlyPayment = fromUtilsGet.formatNumberWithCommas(Number(termlyResult.toFixed(2)));
+        monthlyPayment = fromUtilsGet.addCommas(result.toFixed(2));
+        yearlyPayment = fromUtilsGet.addCommas(termlyResult.toFixed(2));
         fromUtilsGet.renderHTML(monthlyPayment, yearlyPayment);
     }
 }

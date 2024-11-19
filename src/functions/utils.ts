@@ -65,6 +65,6 @@ export function renderHTML(monthlyResult: string, yearlyResult: string): void {
   }
 }
 
-export function formatNumberWithCommas(value: number): string {
-  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+export function addCommas(value: string): string {
+  return value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

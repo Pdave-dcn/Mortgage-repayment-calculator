@@ -1,5 +1,5 @@
 import * as fromMainFunctionsget from "./functions/main-functions.js";
-import { unitLabel } from "./functions/utils.js";
+import { unitLabel, addCommas } from "./functions/utils.js";
 
 // STYLE MANAGING
 //***************************************************************//
@@ -32,17 +32,34 @@ document.querySelectorAll("input[type='radio']").forEach((input) => {
   });
 });
 
+document
+  .querySelector<HTMLInputElement>(".js-input-amount")
+  ?.addEventListener("input", (event) => {
+    const target = event.target as HTMLInputElement;
+    const value = target.value.replace(/,/g, "");
+
+    if (!isNaN(Number(value))) {
+      target.value = addCommas(value);
+    }
+  });
+
 // FORM VALIDATION
 //*****************************************************************************//
 document.querySelector("form")?.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const isInputValid = fromMainFunctionsget.verifyInput();
+  console.log("isInputValid:", isInputValid);
+
   const isInputValueValid =
     isInputValid && fromMainFunctionsget.verifyInputValue();
+  console.log("isInpuValuetValid:", isInputValueValid);
 
   if (isInputValid && isInputValueValid) {
     fromMainFunctionsget.generateResult();
+    console.log("Validation successful");
+  } else {
+    console.log("Validation failed");
   }
 });
 

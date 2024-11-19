@@ -1,7 +1,7 @@
 import * as fromUtilsGet from "./utils.js";
 
-export let isInputValid = true;
-export let isInputValueValid = true;
+let isInputValid = true;
+let isInputValueValid = true;
 
 export function verifyInput(): boolean {
   isInputValid = true;
@@ -42,12 +42,13 @@ export function verifyInputValue(): boolean {
   let isValid = true;
   if (isInputValid) {
     document
-      .querySelectorAll<HTMLInputElement>("input[type='text']")
+      .querySelectorAll<HTMLInputElement>("input[name='mortgage-value']")
       .forEach((input) => {
         const inputElement = input;
-        const value = inputElement.value.trim();
-        const numericValue = Number(inputElement.value);
-        if (isNaN(Number(value))) {
+        const value = inputElement.value.replace(/,/g, "").trim();
+        const numericValue = Number(value);
+
+        if (isNaN(numericValue)) {
           fromUtilsGet.renderError(inputElement, "Must be a valid value");
           isValid = false;
         } else if (numericValue < 0) {
@@ -65,13 +66,16 @@ export function verifyInputValue(): boolean {
   if (!isValid) {
     isInputValueValid = false;
   }
+
   return isInputValueValid;
 }
 
 export function generateResult() {
-  const amount: number = Number(
-    (document.querySelector(".js-input-amount") as HTMLInputElement)?.value
-  );
+  const inputAmountElement: HTMLInputElement = document.querySelector(
+    ".js-input-amount"
+  ) as HTMLInputElement;
+  const inputAmountValue = inputAmountElement.value.replace(/,/g, "");
+  const amount: number = Number(inputAmountValue);
 
   const term: number =
     Number(
@@ -105,23 +109,15 @@ export function generateResult() {
     const result: number = amount * (nume / deno);
     const termlyResult = result * term;
 
-    monthlyPayment = fromUtilsGet.formatNumberWithCommas(
-      Number(result.toFixed(2))
-    );
-    yearlyPayment = fromUtilsGet.formatNumberWithCommas(
-      Number(termlyResult.toFixed(2))
-    );
+    monthlyPayment = fromUtilsGet.addCommas(result.toFixed(2));
+    yearlyPayment = fromUtilsGet.addCommas(termlyResult.toFixed(2));
     fromUtilsGet.renderHTML(monthlyPayment, yearlyPayment);
   } else {
     const result: number = amount * rate;
     const termlyResult = result * term;
 
-    monthlyPayment = fromUtilsGet.formatNumberWithCommas(
-      Number(result.toFixed(2))
-    );
-    yearlyPayment = fromUtilsGet.formatNumberWithCommas(
-      Number(termlyResult.toFixed(2))
-    );
+    monthlyPayment = fromUtilsGet.addCommas(result.toFixed(2));
+    yearlyPayment = fromUtilsGet.addCommas(termlyResult.toFixed(2));
     fromUtilsGet.renderHTML(monthlyPayment, yearlyPayment);
   }
 }
