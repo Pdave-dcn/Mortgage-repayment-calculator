@@ -49,17 +49,12 @@ document.querySelector("form")?.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const isInputValid = fromMainFunctionsget.verifyInput();
-  console.log("isInputValid:", isInputValid);
 
   const isInputValueValid =
     isInputValid && fromMainFunctionsget.verifyInputValue();
-  console.log("isInpuValuetValid:", isInputValueValid);
 
   if (isInputValid && isInputValueValid) {
     fromMainFunctionsget.generateResult();
-    console.log("Validation successful");
-  } else {
-    console.log("Validation failed");
   }
 });
 
